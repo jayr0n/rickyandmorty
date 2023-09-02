@@ -1,4 +1,4 @@
-# api_milenio
+# API RICKY AND MORTY
 
 [![Amber Framework](https://img.shields.io/badge/using-amber_framework-orange.svg)](https://amberframework.org)
 
