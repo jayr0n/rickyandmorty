@@ -1,0 +1,23 @@
+type: app
+database: pg
+language: slang
+model: granite
+
+# list of tasks to be run by `amber watch`
+watch:
+  # NOTE: names that match crystal commands are special (e.g. run, spec)
+  run:
+    # commands will be joined with && (join them yourself if need || or ;)
+    build_commands:
+      - mkdir -p bin
+      - crystal build ./src/api_milenio.cr -o bin/api_milenio
+    run_commands:
+      - bin/api_milenio
+    include:
+      - ./config/**/*.cr
+      - ./config/environments/*.yml
+      - ./src/**/*.cr
+      - ./src/**/*.ecr
+      - ./src/views/**/*.slang
+      - ./src/locales/*.yml
+

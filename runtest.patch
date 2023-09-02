@@ -1,0 +1,17 @@
+diff --git a/runtest b/runtest
+index 477ac0c..d669037 100755
+--- a/runtest
++++ b/runtest
+@@ -29,10 +29,10 @@ later with it down to test if your API will respond before a timeout during the
+ automated tests.\n\n"
+ 
+ if !Process.find_executable("docker-compose").nil?
+-  abort unless Process.run("docker-compose", ["-f=docker-compose.yml", "up", "-d"], **STDIO).success?
++  abort unless Process.run("docker-compose", ["-f", "docker-compose.yml", "up", "-d"], **STDIO).success?
+   at_exit { Process.run("docker-compose", ["down"], **STDIO) }
+ elsif !Process.find_executable("docker").nil?
+-  abort unless Process.run("docker", ["compose", "-f=docker-compose.yml", "up", "-d"], **STDIO).success?
++  abort unless Process.run("docker", ["compose", "-f", "docker-compose.yml", "up", "-d"], **STDIO).success?
+   at_exit { Process.run("docker", ["compose", "down"], **STDIO) }
+ else
+   abort("It seems that docker compose is not installed.")
